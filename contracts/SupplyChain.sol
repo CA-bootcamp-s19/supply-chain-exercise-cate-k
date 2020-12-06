@@ -59,9 +59,7 @@ contract SupplyChain {
 
   /* Create a modifer that checks if the msg.sender is the owner of the contract */
   modifier isOwner() {require(owner == msg.sender, "Owner Only"); _;}
-
   modifier verifyCaller (address _address) { require (msg.sender == _address); _;}
-
   modifier paidEnough(uint _price) { require(msg.value >= _price); _;}
   modifier checkValue(uint _sku) {
     //refund them after pay for item (why it is before, _ checks for logic before func)
@@ -129,7 +127,6 @@ contract SupplyChain {
   }
 
   /* We have these functions completed so we can run tests, just ignore it :) */
-  /*
   function fetchItem(uint _sku) public view returns (string memory name, uint sku, uint price, uint state, address seller, address buyer) {
     name = items[_sku].name;
     sku = items[_sku].sku;
@@ -138,6 +135,6 @@ contract SupplyChain {
     seller = items[_sku].seller;
     buyer = items[_sku].buyer;
     return (name, sku, price, state, seller, buyer);
-  } */
+  }
 
 }
